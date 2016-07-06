@@ -1,13 +1,24 @@
 NAME=deric/jessie-puppet
 VERSIONS=$(shell cat versions.txt)
-all: build
+all: release
 
-build:
+release:
 	$(foreach var,$(VERSIONS),$(call RELEASE,$(var));)
 
-define RELEASE
+build:
+	$(foreach var,$(VERSIONS),$(call BUILD,$(var));)
+
+puppet:
+	$(call BUILD,$(v));
+
+define BUILD
 	docker build --build-arg puppet_version=$(1) -t $(NAME) .
-	docker tag $(NAME) $(NAME):$(1)
+	docker tag -f $(NAME) $(NAME):$(1)
+endef
+
+define RELEASE
+	$(call BUILD,$(var));
+	docker tag -f $(NAME) $(NAME):$(1)
 	docker push $(NAME):$(1)
 endef
 
