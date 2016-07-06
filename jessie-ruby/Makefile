@@ -5,5 +5,5 @@ build:
 	docker build -t $(NAME) .
 
 release: build
-	docker tag $(NAME):$(v)
-	docker push
+	docker tag $(NAME) $(NAME):$(v)
+	docker push $(NAME):$(v)
