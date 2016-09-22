@@ -1,5 +1,7 @@
 # Docker images with preinstalled Puppet
 
+[![Docker Layers](https://images.microbadger.com/badges/image/deric/jessie-puppet.svg)](https://microbadger.com/images/deric/jessie-puppet)
+
 Docker images for automated test.
 
 Puppet versions are defined in `versions.txt` file. One version per line. In order to release all images simply run
