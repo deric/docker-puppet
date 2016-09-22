@@ -1,5 +1,7 @@
 # Basic puppet image on Debian Jessie
 
+[![Docker Layers](https://images.microbadger.com/badges/image/deric/jessie-puppet.svg)](https://microbadger.com/images/deric/jessie-puppet)
+
 Build images with Puppet versions specified in `versions.txt`.
 
 Build locally:
