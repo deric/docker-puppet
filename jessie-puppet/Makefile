@@ -13,12 +13,12 @@ puppet:
 
 define BUILD
 	docker build --build-arg puppet_version=$(1) -t $(NAME) .
-	docker tag -f $(NAME) $(NAME):$(1)
+	docker tag $(NAME) $(NAME):$(1)
 endef
 
 define RELEASE
 	$(call BUILD,$(var));
-	docker tag -f $(NAME) $(NAME):$(1)
+	docker tag $(NAME) $(NAME):$(1)
 	docker push $(NAME):$(1)
 endef
 
