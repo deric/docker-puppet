@@ -1,8 +1,11 @@
 NAME=deric/jessie-puppet
 VERSIONS=$(shell cat versions.txt)
-all: release
+all: releases
 
 release:
+	$(call RELEASE,$(v))
+
+releases:
 	$(foreach var,$(VERSIONS),$(call RELEASE,$(var));)
 
 build:
@@ -17,7 +20,7 @@ define BUILD
 endef
 
 define RELEASE
-	$(call BUILD,$(var));
+	$(call BUILD,$(1));
 	docker tag $(NAME) $(NAME):$(1)
 	docker push $(NAME):$(1)
 endef

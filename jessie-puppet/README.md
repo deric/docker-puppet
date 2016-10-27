@@ -9,6 +9,10 @@ Build locally:
 make build
 ```
 
+## Releases
+
+Before doing a release, make sure, that the base image (`jessie-ruby`) is updated.
+
 Push to hub.docker.com:
 ```
 make release

@@ -7,10 +7,9 @@ echo "version=${version}"
 a=( ${version//./ } )   # replace points, split into array
 
 
+# for puppet 3.8.x and older
+gem install puppet -v ${version}
+gem install facter hiera
 if [ ${a[0]} -ge 4 ]; then
-  echo "not supported yet"
-  exit 1
-else
-  # for puppet 3.8.x and older
-  gem install puppet -v ${version}
+  # TODO: some extra work for puppet4?
 fi
