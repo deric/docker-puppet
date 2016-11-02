@@ -12,4 +12,5 @@ gem install puppet -v ${version}
 gem install facter hiera
 if [ ${a[0]} -ge 4 ]; then
   # TODO: some extra work for puppet4?
+  echo $(puppet --version)
 fi
