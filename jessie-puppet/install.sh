@@ -9,7 +9,7 @@ a=( ${version//./ } )   # replace points, split into array
 
 # for puppet 3.8.x and older
 gem install puppet -v ${version}
-gem install facter hiera
+gem install deep_merge
 if [ ${a[0]} -ge 4 ]; then
   # TODO: some extra work for puppet4?
   echo $(puppet --version)
