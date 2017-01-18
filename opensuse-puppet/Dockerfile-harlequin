@@ -1,5 +1,11 @@
 FROM opensuse:harlequin
 MAINTAINER Tomas Barton <barton.tomas@gmail.com>
 
+VOLUME /sys/fs/cgroup /run /tmp
+ENV container=docker
+
 RUN zypper addrepo http://download.opensuse.org/repositories/systemsmanagement:/puppet/openSUSE_13.2/ puppet | echo 'a'
-RUN zypper install -y puppet && gem install deep_merge
+RUN zypper install -y sudo openSSH curl ntp puppet && gem install deep_merge
+# sshd won't start via systemd, we have to start it manually
+# pretend that rcsshd works
+RUN rm /usr/sbin/rcsshd && ln -s /bin/true /usr/sbin/rcsshd
