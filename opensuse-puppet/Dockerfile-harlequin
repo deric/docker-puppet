@@ -5,7 +5,9 @@ VOLUME /sys/fs/cgroup /run /tmp
 ENV container=docker
 
 RUN zypper addrepo http://download.opensuse.org/repositories/systemsmanagement:/puppet/openSUSE_13.2/ puppet | echo 'a'
-RUN zypper install -y sudo openSSH curl ntp puppet && gem install deep_merge
+# net-tools are needed for hostname command
+RUN zypper install -y sudo openSSH curl ntp net-tools puppet && gem install deep_merge
 # sshd won't start via systemd, we have to start it manually
 # pretend that rcsshd works
 RUN rm /usr/sbin/rcsshd && ln -s /bin/true /usr/sbin/rcsshd
+RUN zypper install -y git-core && mkdir -p /etc/puppet/modules && cd /etc/puppet/modules && git clone https://github.com/puppetlabs/puppetlabs-stdlib.git stdlib
