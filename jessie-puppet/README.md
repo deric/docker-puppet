@@ -15,7 +15,11 @@ Before doing a release, make sure, that the base image (`jessie-ruby`) is update
 
 Push to hub.docker.com:
 ```
-make release
+make releases
+```
+single release:
+```
+make release v=4.8.2
 ```
 
 Build single image:
