@@ -6,3 +6,8 @@ Build locally:
 ```
 make build
 ```
+
+Release new version
+```
+make v=1.2.1
+```
