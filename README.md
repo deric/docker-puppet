@@ -3,7 +3,7 @@
 * ruby [![Docker Layers](https://images.microbadger.com/badges/image/deric/jessie-ruby.svg)](https://microbadger.com/images/deric/jessie-ruby)
 * puppet [![Docker Layers](https://images.microbadger.com/badges/image/deric/jessie-puppet.svg)](https://microbadger.com/images/deric/jessie-puppet)
 
-Docker images for automated test.
+Docker images for automated tests.
 
 Puppet versions are defined in `versions.txt` file. One version per line. In order to release all images simply run
 
