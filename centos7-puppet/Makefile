@@ -2,18 +2,17 @@ NAME=deric/centos7-puppet
 all: release
 
 release:
-	$(call RELEASE)
+	$(call RELEASE,$(v))
 
 build:
-	$(call P387);
+	$(call compile);
 
-define P387
+define compile
 	docker build -f Dockerfile -t $(NAME) .
 endef
 
 define RELEASE
-	$(call P387);
-	docker tag $(NAME) $(NAME):3.8.7
-	docker push $(NAME):3.8.7
+	$(call compile);
+	docker tag $(NAME) $(NAME):$(1)
+	docker push $(NAME):$(1)
 endef
-
