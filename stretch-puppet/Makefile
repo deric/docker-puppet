@@ -3,12 +3,15 @@ VERSIONS=$(shell cat versions.txt)
 all: releases
 
 release:
+	docker pull `head -n 1 Dockerfile | awk '{ print $$2 }'`
 	$(call RELEASE,$(v))
 
 releases:
+	docker pull `head -n 1 Dockerfile | awk '{ print $$2 }'`
 	$(foreach var,$(VERSIONS),$(call RELEASE,$(var));)
 
 build:
+	docker pull `head -n 1 Dockerfile | awk '{ print $$2 }'`
 	$(foreach var,$(VERSIONS),$(call BUILD,$(var));)
 
 puppet:
