@@ -2,16 +2,19 @@ NAME=deric/jessie-puppet
 VERSIONS=$(shell cat versions.txt)
 all: releases
 
-release:
+pull:
+	docker pull `head -n 1 Dockerfile | awk '{ print $$2 }'`
+
+release: pull
 	$(call RELEASE,$(v))
 
-releases:
+releases: pull
 	$(foreach var,$(VERSIONS),$(call RELEASE,$(var));)
 
-build:
+build: pull
 	$(foreach var,$(VERSIONS),$(call BUILD,$(var));)
 
-puppet:
+puppet: pull
 	$(call BUILD,$(v));
 
 define BUILD
