@@ -1,10 +1,13 @@
 NAME=deric/opensuse-puppet
 all: release
 
-release:
+pull:
+	docker pull `head -n 1 Dockerfile | awk '{ print $$2 }'`
+
+release: pull
 	$(call RELEASE,harlequin-3.8.5)
 
-build:
+build: pull
 	$(call harlequin);
 
 define harlequin
