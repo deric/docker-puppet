@@ -12,7 +12,7 @@ releases:
 
 build:
 	docker pull `head -n 1 Dockerfile | awk '{ print $$2 }'`
-	$(foreach var,$(VERSIONS),$(call BUILD,$(var));)
+	$(call BUILD,$(v));
 
 puppet:
 	$(call BUILD,$(v));

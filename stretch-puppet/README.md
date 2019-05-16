@@ -6,7 +6,7 @@ Build images with Puppet versions specified in `versions.txt`.
 
 Build locally:
 ```
-make build
+make build v=5.5
 ```
 
 ## Releases
@@ -19,7 +19,7 @@ make releases
 ```
 single release:
 ```
-make release v=4.8.2
+make release v=5.5.14
 ```
 
 Build single image:

@@ -7,7 +7,7 @@ echo "version=${version}"
 a=( ${version//./ } )   # replace points, split into array
 
 codename=$(lsb_release -c | awk -v FS=":\t" '/Codename/ {print $2}')
-wget -O /tmp/puppet.deb http://apt.puppetlabs.com/puppetlabs-release-pc1-${codename}.deb -O /tmp/puppet.deb
+wget -O /tmp/puppet.deb http://apt.puppetlabs.com/puppet${a[0]}-release-${codename}.deb -O /tmp/puppet.deb
 dpkg -i --force-all /tmp/puppet.deb
 apt-get update && apt-get install -y puppet-agent
 mkdir /root/.ssh/
