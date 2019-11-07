@@ -1,7 +1,7 @@
 FROM centos:8
 MAINTAINER Tomas Barton <barton.tomas@gmail.com>
 
-RUN yum -y install sudo openssh-server openssh-clients curl
+RUN yum -y install sudo openssh-server openssh-clients curl chrony net-tools
 RUN mkdir -p /var/run/sshd
 RUN echo root:root | chpasswd
 RUN sed -ri 's/^#?PermitRootLogin .*/PermitRootLogin yes/' /etc/ssh/sshd_config
