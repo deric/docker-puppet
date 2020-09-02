@@ -15,6 +15,7 @@ yum -y update && yum install -y puppet-agent-${version}-${minor}.el${major}
 mkdir /root/.ssh/
 cat <<EOF > ~/.ssh/environment
 PATH=/opt/puppetlabs/bin:/opt/puppetlabs/bin/hiera:/usr/bin:/opt/puppetlabs/bin/hiera:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$PATH
+LANG="C.UTF8"
 EOF
 mkdir /etc/puppet && ln -s /etc/puppet/modules /etc/puppetlabs/code/modules
 rm /tmp/puppet.rpm
